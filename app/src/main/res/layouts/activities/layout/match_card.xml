@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_1"
+    android:weightSum="2"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"></ImageView>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"
+        android:gravity="center"
+        android:weightSum="2">
+       <ImageView
+           android:layout_weight=".3"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:src="@drawable/ic_videogame">
+
+       </ImageView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.7"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Freefire Duo Match">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".6"
+            android:textColor="#9A0606"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="Match Time :">
+
+        </TextView>
+        <TextView
+            android:layout_weight="1.4"
+            android:layout_width="0dp"
+            android:textColor="#970505"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text=" 10/03/2021 at 12:20 PM">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Winner"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="Per Kill">
+
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Entry Fee">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#075B9E"
+            android:text="1200"
+            android:gravity="center"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#075B9E"
+            android:gravity="center"
+            android:text="10">
+
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:textColor="#075B9E"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="20">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+
+
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Category"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Type">
+
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Map">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+
+        android:gravity="center"
+
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FFSDS"
+            android:textColor="#1E079E"
+            android:gravity="center"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#1E079E"
+            android:gravity="center"
+            android:text="DUO">
+
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:textColor="#1E079E"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bermuda">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:weightSum="1"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+        <ProgressBar
+            android:layout_width="0dp"
+            android:layout_weight=".8"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="15">
+
+        </ProgressBar>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="40/100"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_weight=".2">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Player List"
+
+            >
+
+        </Button>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="right">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Join"
+            >
+        </Button>
+</LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
