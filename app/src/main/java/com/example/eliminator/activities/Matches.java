@@ -3,6 +3,7 @@ package com.example.eliminator.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.eliminator.R;
@@ -31,5 +32,10 @@ public class Matches extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
+    }
+    public String getGameMode()
+    {
+        Intent intent=getIntent();
+        return intent.getStringExtra("game_mode");
     }
 }

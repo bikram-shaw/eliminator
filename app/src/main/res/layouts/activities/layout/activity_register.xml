@@ -28,6 +28,7 @@
 
         >
         <EditText
+            android:id="@+id/reg_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mobile"
@@ -40,6 +41,7 @@
 
             ></EditText>
         <EditText
+            android:id="@+id/reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email ID"
@@ -52,6 +54,7 @@
 
             ></EditText>
         <EditText
+            android:id="@+id/reg_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -64,6 +67,7 @@
 
             ></EditText>
         <EditText
+            android:id="@+id/reg_cpass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
@@ -76,6 +80,7 @@
 
             ></EditText>
         <EditText
+            android:id="@+id/reg_refer_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Refer Code"
@@ -88,13 +93,40 @@
 
             ></EditText>
         <Button
+            android:id="@+id/reg_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
+            android:layout_marginVertical="5dp"
             android:paddingVertical="15dp"
             android:text="Sign Up">
 
         </Button>
+
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:orientation="horizontal">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Already registered ?">
+
+           </TextView>
+           <Button
+               android:id="@+id/reg_login_btn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+               android:backgroundTint="#fff"
+               android:textColor="@color/black"
+               android:text="Login">
+
+           </Button>
+       </LinearLayout>
+
 
 
     </LinearLayout>
