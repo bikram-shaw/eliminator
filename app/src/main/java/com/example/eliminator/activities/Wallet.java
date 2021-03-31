@@ -1,8 +1,10 @@
-package com.example.eliminator;
+package com.example.eliminator.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.eliminator.R;
 
 public class Wallet extends AppCompatActivity {
 
