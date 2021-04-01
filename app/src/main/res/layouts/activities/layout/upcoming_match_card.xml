@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="5dp"
+    android:layout_marginHorizontal="5dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="8dp"
+    android:layout_height="wrap_content">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/card_1"
     android:weightSum="2"
     >
 
@@ -57,6 +65,7 @@
 
         </TextView>
         <TextView
+            android:id="@+id/match_card_date_time"
             android:layout_weight="1.4"
             android:layout_width="0dp"
             android:textColor="#970505"
@@ -114,6 +123,7 @@
         android:layout_marginHorizontal="10dp"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/match_card_win_amount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -123,6 +133,7 @@
             >
         </TextView>
         <TextView
+            android:id="@+id/match_card_per_kill"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -132,6 +143,7 @@
 
         </TextView>
         <TextView
+            android:id="@+id/match_card_entry_fee"
             android:layout_width="0dp"
             android:gravity="center"
             android:textColor="#075B9E"
@@ -192,6 +204,7 @@
         android:layout_marginHorizontal="10dp"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/match_card_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -201,6 +214,7 @@
             >
         </TextView>
         <TextView
+            android:id="@+id/match_card_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -210,6 +224,7 @@
 
         </TextView>
         <TextView
+            android:id="@+id/match_card_map"
             android:layout_width="0dp"
             android:gravity="center"
             android:textColor="#1E079E"
@@ -228,6 +243,7 @@
         android:gravity="center"
         android:layout_marginTop="10dp">
         <ProgressBar
+            android:id="@+id/match_card_progress_bar"
             android:layout_width="0dp"
             android:layout_weight=".8"
             android:layout_height="wrap_content"
@@ -239,6 +255,7 @@
 
         </ProgressBar>
         <TextView
+            android:id="@+id/match_card_spots"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="40/100"
@@ -257,6 +274,7 @@
 
         >
         <Button
+            android:id="@+id/match_card_player_list_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Player List"
@@ -270,6 +288,7 @@
     android:orientation="horizontal"
     android:gravity="right">
         <Button
+            android:id="@+id/match_card_join_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Join"
@@ -280,3 +299,4 @@
 
 
 </LinearLayout>
+</androidx.cardview.widget.CardView>

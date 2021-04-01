@@ -1,8 +1,11 @@
 package com.example.eliminator.apis;
 
+import com.example.eliminator.modal.TransactionResponse;
 import com.example.eliminator.modal.UpcomingMatches;
 import com.example.eliminator.modal.UserDetails;
 import com.google.gson.JsonObject;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -22,15 +25,23 @@ public interface AuthApis {
             @Body JsonObject jsonObject
     );
     @GET("game/")
-    Call<UpcomingMatches> upcomingMatches(
-            JsonObject jsonObject
+    Call<ArrayList<UpcomingMatches>> upcomingMatches(
+            @Query("game") String game,
+            @Query("status") String status
     );
     @GET("game/")
-    Call<UpcomingMatches> ongoingMatches(
-            JsonObject jsonObject
+    Call<ArrayList<UpcomingMatches>> ongoingMatches(
+            @Query("game") String game,
+            @Query("status") String status
     );
     @GET("game/")
     Call<UpcomingMatches> resultMatches(
-            JsonObject jsonObject
+            @Query("game") String game,
+            @Query("status") String status
+    );
+    @GET("transaction/")
+    Call<TransactionResponse> getTransactions(
+            @Query("page") String page
+
     );
 }

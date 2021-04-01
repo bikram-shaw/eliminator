@@ -32,6 +32,7 @@ public class Result extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("on Create result");
 
     }
 
@@ -49,11 +50,7 @@ public class Result extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         AuthApis authApis = retrofit.create(AuthApis.class);
-        JsonObject jsonObject = new JsonObject();
-        // jsonObject.addProperty("mobile", mobile.getText().toString());
-        //jsonObject.addProperty("password", password.getText().toString());
-        System.out.println(jsonObject);
-        Call<UpcomingMatches> call = authApis.upcomingMatches(jsonObject);
+        Call<UpcomingMatches> call = authApis.resultMatches("jsonObject","");
         System.out.println(call.request().url());
         call.enqueue(new Callback<UpcomingMatches>() {
             @Override

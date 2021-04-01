@@ -113,4 +113,22 @@ public class UpcomingMatches {
     public void setTime(String time) {
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "UpcomingMatches{" +
+                "id='" + id + '\'' +
+                ", is_join='" + is_join + '\'' +
+                ", join_spot='" + join_spot + '\'' +
+                ", category='" + category + '\'' +
+                ", entry_fee='" + entry_fee + '\'' +
+                ", winning_prize='" + winning_prize + '\'' +
+                ", map='" + map + '\'' +
+                ", type='" + type + '\'' +
+                ", per_kill='" + per_kill + '\'' +
+                ", spots='" + spots + '\'' +
+                ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }

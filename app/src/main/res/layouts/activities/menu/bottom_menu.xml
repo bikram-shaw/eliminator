@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_upcoming"
+        android:title="Upcoming"
+        android:icon="@drawable/ic_upcoming">
+
+    </item>
+    <item
+        android:id="@+id/bottom_ongoing"
+        android:title="Ongoing"
+        android:icon="@drawable/ic_ongoing"
+        >
+
+    </item>
+    <item
+        android:id="@+id/bottom_result"
+        android:title="Result"
+        android:icon="@drawable/ic_result"
+        >
+    </item>
+</menu>

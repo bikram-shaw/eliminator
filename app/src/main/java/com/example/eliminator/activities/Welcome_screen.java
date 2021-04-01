@@ -18,9 +18,11 @@ public class Welcome_screen extends AppCompatActivity {
         if(sharedPreference.isLoggedIn())
         {
             startActivity(new Intent(getApplicationContext(),Home.class));
+            finish();
         }
         else {
             startActivity(new Intent(getApplicationContext(),Login.class));
+            finish();
         }
 
     }

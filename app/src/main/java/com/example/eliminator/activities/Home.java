@@ -26,6 +26,7 @@ public class Home extends AppCompatActivity {
                intent=new Intent(getApplicationContext(),Matches.class);
                intent.putExtra("game_mode","ffsds");
                 startActivity(intent);
+
             }
         });
         ffcs.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,7 @@ public class Home extends AppCompatActivity {
                 intent=new Intent(getApplicationContext(),Matches.class);
                 intent.putExtra("game_mode","ffcs");
                 startActivity(intent);
+
             }
         });
         fft.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +44,7 @@ public class Home extends AppCompatActivity {
                 intent=new Intent(getApplicationContext(),Matches.class);
                 intent.putExtra("game_mode","fft");
                 startActivity(intent);
+
             }
         });
     }
