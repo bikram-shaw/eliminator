@@ -157,8 +157,6 @@
                 android:text="Add Money"
                 android:layout_marginRight="5dp"
                 >
-
-
             </Button>
             <Button
                 android:layout_marginLeft="5dp"

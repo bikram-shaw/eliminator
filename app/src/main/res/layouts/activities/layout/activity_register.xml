@@ -11,10 +11,10 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:scaleType="centerCrop"
         android:layout_weight=".4"
-        android:src="@drawable/logo"
+        android:src="@drawable/signup"
         >
 
     </ImageView>
@@ -22,16 +22,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingHorizontal="5dp"
         android:layout_weight="1.6"
         android:gravity="center"
-        android:layout_marginHorizontal="8dp"
-
+        android:background="#050B2E"
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:padding="5dp"
+            android:orientation="vertical">
+
+
         <EditText
             android:id="@+id/reg_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mobile"
+            android:textColorHint="#fff"
             android:layout_marginVertical="8dp"
             android:background="@drawable/edit_text_shape_1"
             android:paddingVertical="15dp"
@@ -45,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email ID"
+            android:textColorHint="#fff"
             android:layout_marginVertical="8dp"
             android:background="@drawable/edit_text_shape_1"
             android:paddingVertical="15dp"
@@ -57,7 +66,8 @@
             android:id="@+id/reg_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Password (4 digit number)"
+            android:textColorHint="#fff"
             android:layout_marginVertical="8dp"
             android:background="@drawable/edit_text_shape_1"
             android:paddingVertical="15dp"
@@ -71,6 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
+            android:textColorHint="#fff"
             android:layout_marginVertical="8dp"
             android:background="@drawable/edit_text_shape_1"
             android:paddingVertical="15dp"
@@ -83,7 +94,8 @@
             android:id="@+id/reg_refer_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Refer Code"
+            android:hint="Refer Code (Optional)"
+            android:textColorHint="#fff"
             android:background="@drawable/edit_text_shape_1"
             android:layout_marginVertical="8dp"
             android:paddingVertical="15dp"
@@ -110,6 +122,7 @@
            android:gravity="center"
            android:orientation="horizontal">
            <TextView
+               android:textColor="#fff"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Already registered ?">
@@ -120,13 +133,14 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_marginLeft="10dp"
-               android:backgroundTint="#fff"
-               android:textColor="@color/black"
+               android:padding="0dp"
+               android:backgroundTint="#11FFFFFF"
+               android:textColor="#FFFFFF"
                android:text="Login">
 
            </Button>
        </LinearLayout>
-
+        </LinearLayout>
 
 
     </LinearLayout>
