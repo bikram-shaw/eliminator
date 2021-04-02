@@ -165,6 +165,7 @@ public void generateTransaction(String amount){
     public void getTransactions(){
         ProgressDialog progressDialog = new ProgressDialog(Wallet.this);
         progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         TokenInterceptor interceptor=new TokenInterceptor(SharedPreference.getInstance(getApplicationContext()).getUserData().getToken());
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -213,6 +214,7 @@ public void generateTransaction(String amount){
 public void getWalletBal(){
     ProgressDialog progressDialog = new ProgressDialog(Wallet.this);
     progressDialog.setMessage("Loading...");
+    progressDialog.setCanceledOnTouchOutside(false);
     progressDialog.show();
     TokenInterceptor interceptor=new TokenInterceptor(SharedPreference.getInstance(getApplicationContext()).getUserData().getToken());
     OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -258,6 +260,7 @@ public void getChecksum(String amount){
 
     ProgressDialog progressDialog = new ProgressDialog(Wallet.this);
     progressDialog.setMessage("Loading...");
+    progressDialog.setCanceledOnTouchOutside(false);
     progressDialog.show();
     TokenInterceptor interceptor=new TokenInterceptor(SharedPreference.getInstance(getApplicationContext()).getUserData().getToken());
     OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();

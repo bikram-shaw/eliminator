@@ -65,6 +65,7 @@ public class Ongoing extends Fragment {
     public void getOngoingMatches(View view){
         ProgressDialog progressDialog = new ProgressDialog(view.getContext());
         progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         TokenInterceptor interceptor=new TokenInterceptor(SharedPreference.getInstance(getContext()).getUserData().getToken());
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();

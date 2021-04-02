@@ -72,6 +72,7 @@ public class Upcoming extends Fragment {
 
     public void getUpcomingMatches(View view){
         ProgressDialog progressDialog = new ProgressDialog(view.getContext());
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
         TokenInterceptor interceptor=new TokenInterceptor(SharedPreference.getInstance(getContext()).getUserData().getToken());

@@ -38,10 +38,14 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
         holder.txn_description.setText(transactions.get(position).getDescription());
         holder.txn_status.setText(transactions.get(position).getStatus());
         holder.txn_date.setText(transactions.get(position).getDate());
-        holder.txn_amount.setText(transactions.get(position).getAmount());
-        if(transactions.get(position).getStatus().equals("credit"))
+        if(transactions.get(position).getStatus().equals("credit")){
             holder.txn_status.setTextColor(Color.rgb(0, 133, 55));
-        else holder.txn_status.setTextColor(Color.rgb(181, 33, 0));
+            holder.txn_amount.setText("+ "+transactions.get(position).getAmount());
+        }
+        else {
+            holder.txn_status.setTextColor(Color.rgb(181, 33, 0));
+            holder.txn_amount.setText("- "+transactions.get(position).getAmount());
+        }
 
 
     }
