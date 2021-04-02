@@ -1,8 +1,10 @@
 package com.example.eliminator.apis;
 
+import com.example.eliminator.modal.GenerateChecksum;
 import com.example.eliminator.modal.TransactionResponse;
 import com.example.eliminator.modal.UpcomingMatches;
 import com.example.eliminator.modal.UserDetails;
+import com.example.eliminator.modal.Wallet;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -42,6 +44,16 @@ public interface AuthApis {
     @GET("transaction/")
     Call<TransactionResponse> getTransactions(
             @Query("page") String page
+
+    );
+    @GET("wallet/")
+    Call<Wallet> getWalletBalance(
+
+
+    );
+    @GET("add-money/")
+    Call<GenerateChecksum> getChecksum(
+            @Query("amount") String amount
 
     );
 }

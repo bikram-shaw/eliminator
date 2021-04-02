@@ -1,7 +1,7 @@
 package com.example.eliminator.modal;
 
 public class ResponseMessage {
-    String error,message;
+    private String error,message;
 
     public ResponseMessage(String error, String message) {
         this.error = error;

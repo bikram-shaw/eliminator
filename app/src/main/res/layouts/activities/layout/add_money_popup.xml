@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Money"
+        android:textSize="22sp"
+        android:textAlignment="center" />
+    <EditText
+        android:id="@+id/add_money_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="number"
+        android:background="@drawable/edit_text_shape_1"
+        android:paddingVertical="15dp"
+        android:hint="Enter Amount"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:id="@+id/add_money_cancel_btn"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:id="@+id/add_money_ok_btn"/>
+    </LinearLayout>
+</LinearLayout>

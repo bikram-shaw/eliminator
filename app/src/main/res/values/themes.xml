@@ -15,8 +15,8 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">#673AB7</item>
-        <item name="android:background">#E6E6E6</item>
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="android:background">#290170</item>
 
 
     </style>

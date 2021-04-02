@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.eliminator"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -64,4 +64,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.paytm.appinvokesdk:appinvokesdk:1.2'
 }

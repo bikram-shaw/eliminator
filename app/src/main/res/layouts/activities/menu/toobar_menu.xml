@@ -5,14 +5,9 @@
     android:id="@+id/toolbar_menu_wallet"
     android:title=""
 app:showAsAction="always"
-    android:icon="@drawable/ic_wallet">
+    android:icon="@drawable/ic_wallet"
+    >
 
 </item>
-    <item
-        android:id="@+id/toolbar_menu_wallet_bal"
-        android:title="200"
-        app:showAsAction="always"
-      >
 
-    </item>
 </menu>

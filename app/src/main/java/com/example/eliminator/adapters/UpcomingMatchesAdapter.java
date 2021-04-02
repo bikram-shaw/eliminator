@@ -43,6 +43,7 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
           holder.spots.setText(upcomingMatches.get(position).getJoin_spot()+" / "+upcomingMatches.get(position).getSpots());
           holder.progressBar.setProgress(Integer.parseInt(upcomingMatches.get(position).getJoin_spot()));
           holder.progressBar.setMax(Integer.parseInt(upcomingMatches.get(position).getSpots()));
+          holder.title.setText("# "+upcomingMatches.get(position).getId()+" "+upcomingMatches.get(position).getType()+" Match");
 
     }
 
@@ -52,7 +53,7 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView date_time,win_amount,per_kill,entry_fee,category,type,map,spots;
+        TextView date_time,win_amount,per_kill,entry_fee,category,type,map,spots,title;
         ProgressBar progressBar;
         Button player_list_btn,join_btn;
 
@@ -65,6 +66,7 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
           entry_fee=itemView.findViewById(R.id.match_card_entry_fee);
           category=itemView.findViewById(R.id.match_card_category);
           type=itemView.findViewById(R.id.match_card_type);
+          title=itemView.findViewById(R.id.upcoming_match_title);
           map=itemView.findViewById(R.id.match_card_map);
           spots=itemView.findViewById(R.id.match_card_spots);
           progressBar=itemView.findViewById(R.id.match_card_progress_bar);

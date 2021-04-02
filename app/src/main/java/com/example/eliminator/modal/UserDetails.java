@@ -1,7 +1,7 @@
 package com.example.eliminator.modal;
 
 public class UserDetails {
-    String token,email,mobile,refer_code;
+    private String token,email,mobile,refer_code;
 
     public UserDetails(String token, String email, String mobile, String refer_code) {
         this.token = token;

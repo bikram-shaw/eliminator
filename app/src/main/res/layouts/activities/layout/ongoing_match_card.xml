@@ -39,8 +39,10 @@
 
         </ImageView>
         <TextView
+            android:id="@+id/ongoing_match_card_title"
             android:layout_width="0dp"
             android:layout_weight="1.7"
+            android:textAllCaps="true"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"

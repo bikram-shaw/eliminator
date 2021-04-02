@@ -38,9 +38,11 @@
 
        </ImageView>
         <TextView
+            android:id="@+id/upcoming_match_title"
             android:layout_width="0dp"
             android:layout_weight="1.7"
             android:textSize="20dp"
+            android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_height="wrap_content"

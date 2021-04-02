@@ -1,7 +1,7 @@
 package com.example.eliminator.modal;
 
 public class Transactions {
-String description,status,date,amount;
+private String description,status,date,amount;
 
     public Transactions(String description, String status, String date, String amount) {
         this.description = description;

@@ -3,8 +3,8 @@ package com.example.eliminator.modal;
 import java.util.ArrayList;
 
 public class TransactionResponse {
-    String count,page_size;
-    ArrayList<Transactions> results;
+    private String count,page_size;
+    private ArrayList<Transactions> results;
 
     public TransactionResponse(String count, String page_size, ArrayList<Transactions> results) {
         this.count = count;

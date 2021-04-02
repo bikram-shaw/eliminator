@@ -1,7 +1,7 @@
 package com.example.eliminator.modal;
 
 public class UpcomingMatches {
-    String id,is_join,join_spot,category,entry_fee,winning_prize,map,type,per_kill,spots,date,time;
+   private String id,is_join,join_spot,category,entry_fee,winning_prize,map,type,per_kill,spots,date,time;
 
     public UpcomingMatches(String id, String is_join, String join_spot, String category, String entry_fee, String winning_prize, String map, String type, String per_kill, String spots, String date, String time) {
         this.id = id;

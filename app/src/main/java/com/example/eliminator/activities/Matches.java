@@ -111,10 +111,7 @@ public class Matches extends AppCompatActivity  implements BottomNavigationView.
         switch (item.getItemId())
         {
             case R.id.toolbar_menu_wallet:
-                Toast.makeText(getApplicationContext(), " nbnnbh", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.toolbar_menu_wallet_bal:
-                Toast.makeText(getApplicationContext(), " nbnnbh", Toast.LENGTH_SHORT).show();
+               startActivity(new Intent(getApplicationContext(),Wallet.class));
                 break;
 
         }

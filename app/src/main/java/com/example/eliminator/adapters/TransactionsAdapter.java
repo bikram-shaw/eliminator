@@ -1,6 +1,7 @@
 package com.example.eliminator.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,9 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
         holder.txn_status.setText(transactions.get(position).getStatus());
         holder.txn_date.setText(transactions.get(position).getDate());
         holder.txn_amount.setText(transactions.get(position).getAmount());
+        if(transactions.get(position).getStatus().equals("credit"))
+            holder.txn_status.setTextColor(Color.rgb(0, 133, 55));
+        else holder.txn_status.setTextColor(Color.rgb(181, 33, 0));
 
 
     }
