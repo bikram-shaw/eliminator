@@ -91,7 +91,7 @@ public class Matches extends AppCompatActivity  implements BottomNavigationView.
 
         // Find logo
         System.out.println(toolbar.getChildCount());
-        View view = toolbar.getChildAt(1);
+        View view = toolbar.getChildAt(2);
         //to open navigation after clicking Logo Icon
         view.setOnClickListener(new View.OnClickListener() {
             @Override

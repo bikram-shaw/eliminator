@@ -1,6 +1,9 @@
 package com.example.eliminator.apis;
 
 import com.example.eliminator.modal.GenerateChecksum;
+import com.example.eliminator.modal.JoinPlayerList;
+import com.example.eliminator.modal.ResponseMessage;
+import com.example.eliminator.modal.RoomDetails;
 import com.example.eliminator.modal.TransactionResponse;
 import com.example.eliminator.modal.UpcomingMatches;
 import com.example.eliminator.modal.UserDetails;
@@ -54,6 +57,23 @@ public interface AuthApis {
     @GET("add-money/")
     Call<GenerateChecksum> getChecksum(
             @Query("amount") String amount
+
+    );
+    @GET("join-match/")
+    Call<ArrayList<JoinPlayerList>> getJoinPlayerList(
+            @Query("game_id") String game_id
+
+    );
+    @POST("join-match/")
+    Call<ResponseMessage> joinMatch(
+            @Body JsonObject data
+
+
+    );
+
+    @GET("room-details/")
+    Call<RoomDetails> getRoomDetails(
+            @Query("game_id") String game_id
 
     );
 }

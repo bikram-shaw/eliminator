@@ -61,9 +61,9 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(){
-//        ProgressDialog progressDialog = new ProgressDialog(getApplicationContext());
-//        progressDialog.setMessage("Loading...");
-//        progressDialog.show();
+       ProgressDialog progressDialog = new ProgressDialog(Login.this);
+       progressDialog.setMessage("Loading...");
+       progressDialog.show();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BaseUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -79,6 +79,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
                 if (response.isSuccessful()) {
+                    progressDialog.dismiss();
                    // Loader.hideProgressDialog(new ProgressDialog(getApplicationContext()));
                     UserDetails userDetails = response.body();
                         SharedPreference sharedPreference = SharedPreference.getInstance(getApplicationContext());
@@ -87,6 +88,7 @@ public class Login extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                 } else {
+                    progressDialog.dismiss();
                     Gson gson = new GsonBuilder().create();
                     try {
                         ResponseMessage responseMessage = gson.fromJson(response.errorBody().string(), ResponseMessage.class);
@@ -99,7 +101,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserDetails> call, Throwable t) {
-
+progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), "Something went wrong, Try again!", Toast.LENGTH_LONG).show();
             }
         });

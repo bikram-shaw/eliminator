@@ -9,18 +9,18 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.Matches">
     <LinearLayout
+        android:id="@+id/match_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/matches_toolbar"
-        android:tooltipText="Eliminator"
+        app:title="Eliminator"
+        app:titleTextColor="#fff"
+        app:titleMarginStart="40dp"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_700"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/purple_700" />
     <FrameLayout
         android:id="@+id/matches_frame_layout"
         android:layout_width="match_parent"
@@ -40,10 +40,8 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/sidebar_menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:menu="@menu/sidebar_menu"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"

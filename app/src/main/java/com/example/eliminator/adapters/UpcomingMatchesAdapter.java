@@ -1,7 +1,9 @@
 package com.example.eliminator.adapters;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +12,36 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eliminator.R;
+import com.example.eliminator.activities.Home;
+import com.example.eliminator.activities.Login;
 import com.example.eliminator.activities.Matches;
+import com.example.eliminator.activities.PlayerList;
+import com.example.eliminator.apis.AuthApis;
+import com.example.eliminator.apis.BaseUrl;
+import com.example.eliminator.helper.SharedPreference;
+import com.example.eliminator.helper.TokenInterceptor;
+import com.example.eliminator.modal.ResponseMessage;
 import com.example.eliminator.modal.UpcomingMatches;
+import com.example.eliminator.modal.UserDetails;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatchesAdapter.ViewHolder>{
     Context context;
@@ -47,6 +70,13 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
           holder.spots.setText(upcomingMatches.get(position).getJoin_spot()+" / "+upcomingMatches.get(position).getSpots());
           holder.progressBar.setProgress(Integer.parseInt(upcomingMatches.get(position).getJoin_spot()));
           holder.progressBar.setMax(Integer.parseInt(upcomingMatches.get(position).getSpots()));
+          String is_join=upcomingMatches.get(position).getIs_join();
+        if(Integer.parseInt(is_join)==1){
+            holder.join_btn.setText("Joined");
+            holder.join_btn.setTextColor(Color.WHITE);
+            holder.join_btn.setBackgroundColor(Color.rgb(255, 204, 0));
+            holder.join_btn.setEnabled(false);
+        }
           holder.title.setText("# "+upcomingMatches.get(position).getId()+" "+upcomingMatches.get(position).getType()+" Match");
           int is_free_spot=Integer.parseInt(upcomingMatches.get(position).getSpots())-Integer.parseInt(upcomingMatches.get(position).getJoin_spot());
           if(is_free_spot>0){
@@ -60,10 +90,21 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
               });
           }
           else {
-              holder.join_btn.setText("Match Full");
-              holder.join_btn.setBackgroundColor(Color.rgb(181, 33, 0));
-              holder.join_btn.setEnabled(false);
+              if(Integer.parseInt(is_join)==0) {
+                  holder.join_btn.setText("Match Full");
+                  holder.join_btn.setTextColor(Color.WHITE);
+                  holder.join_btn.setBackgroundColor(Color.rgb(181, 33, 0));
+                  holder.join_btn.setEnabled(false);
+              }
           }
+          holder.player_list_btn.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent intent=new Intent(context, PlayerList.class);
+                  intent.putExtra("game_id",upcomingMatches.get(position).getId());
+                  context.startActivity(intent);
+              }
+          });
 
     }
 
@@ -95,13 +136,27 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
 
         }
     }
-    public void openJoinGamePopup(String matchId,String entry_fee,String type){
+    public void openJoinGamePopup(String matchId,String type,String entry_fee){
         final AlertDialog.Builder alert = new AlertDialog.Builder(context);
         View mView = LayoutInflater.from(context).inflate(R.layout.join_match_popup,null);
         final EditText player1 = mView.findViewById(R.id.player_one);
         final EditText player2 = mView.findViewById(R.id.player_two);
         final EditText player3 = mView.findViewById(R.id.player_three);
         final EditText player4 = mView.findViewById(R.id.player_four);
+        if(type.equals("Solo"))
+        {
+            player2.setVisibility(View.GONE);
+            player3.setVisibility(View.GONE);
+            player4.setVisibility(View.GONE);
+        }
+        else if(type.equals("Duo"))
+        {
+            player3.setVisibility(View.GONE);
+            player4.setVisibility(View.GONE);
+        }
+        else{
+
+        }
 
         Button btn_cancel = (Button)mView.findViewById(R.id.join_player_cancel_btn);
         Button btn_okay = (Button)mView.findViewById(R.id.join_player_ok_btn);
@@ -117,10 +172,64 @@ public class UpcomingMatchesAdapter extends RecyclerView.Adapter<UpcomingMatches
         btn_okay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                joinMatch(matchId,player1.getText().toString(),player2.getText().toString(),player3.getText().toString()
+                ,player4.getText().toString());
                 alertDialog.dismiss();
             }
         });
         alertDialog.show();
 
+    }
+    public void joinMatch(String matchId,String player1, String player2, String player3, String player4){
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+        TokenInterceptor interceptor=new TokenInterceptor(SharedPreference.getInstance(context).getUserData().getToken());
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+        Retrofit retrofit = new Retrofit.Builder().client(client)
+                .baseUrl(BaseUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        AuthApis authApis = retrofit.create(AuthApis.class);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("player_name", player1+" "+player2+" "+player3+" "+player4);
+        jsonObject.addProperty("game", matchId);
+        System.out.println(jsonObject);
+        Call<ResponseMessage> call = authApis.joinMatch(jsonObject);
+        System.out.println(call.request().url());
+        call.enqueue(new Callback<ResponseMessage>() {
+            @Override
+            public void onResponse(Call<ResponseMessage> call, Response<ResponseMessage> response) {
+                if (response.isSuccessful()) {
+                    progressDialog.dismiss();
+                    System.out.println("success");
+                    // Loader.hideProgressDialog(new ProgressDialog(getApplicationContext()));
+                    ResponseMessage responseMessage = response.body();
+                    Toast.makeText(context, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
+                }
+                else {
+                    progressDialog.dismiss();
+                    System.out.println("akhane");
+                    Gson gson = new GsonBuilder().create();
+                    try {
+                        ResponseMessage responseMessage = gson.fromJson(response.errorBody().string(), ResponseMessage.class);
+                        Toast.makeText(context, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
+                        System.out.println(responseMessage.toString());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println("catch");
+                    }
+
+                    System.out.println(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseMessage> call, Throwable t) {
+                progressDialog.dismiss();
+                System.out.println("failed");
+                Toast.makeText(context, "Something went wrong, Try again!", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
